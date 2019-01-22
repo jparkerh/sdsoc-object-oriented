@@ -71,6 +71,7 @@ void custom_type_container::append(int x, int y) {
 	this->y_accel[this->array_size] = y;
 
 	this->custom_type_array[this->array_size] = (uint64_t) new custom_type((this->x_accel + this->array_size), (this->y_accel + this->array_size));
+	this->array_size++;
 
 	return;
 }
@@ -93,7 +94,7 @@ int *custom_type_container::get_y(){
 }
 
 // ""
-int *custom_type_container::get_array(){
+uint64_t *custom_type_container::get_array(){
 	return this->custom_type_array;
 }
 

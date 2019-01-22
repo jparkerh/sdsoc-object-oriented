@@ -43,6 +43,6 @@ int main () {
 
 	bubble_sort(test.get_array(), test.get_x(), test.get_size());
 
-	printf("post-sort:\n")
+	printf("post-sort:\n");
 	test.print_container();
 }
