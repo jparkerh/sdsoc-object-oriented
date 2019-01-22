@@ -33,15 +33,18 @@ void bubble_sort(uint64_t *obj_ptrs, int *values, int size);
 int main () {
 	custom_type_container test = custom_type_container();
 
-	test.append(4, 4);
+	test.append(5, 4);
 	test.append(3, 5);
-	test.append(1, 6);
-	test.append(2, 7);
+	test.append(2, 6);
+	test.append(4, 7);
 
 	printf("pre-sort:\n");
 	test.print_container();
 
-	bubble_sort(test.get_array(), test.get_x(), test.get_size());
+	int *values = test.get_x();
+	bubble_sort(test.get_array(), values, test.get_size());
+
+	printf("------------------\n");
 
 	printf("post-sort:\n");
 	test.print_container();

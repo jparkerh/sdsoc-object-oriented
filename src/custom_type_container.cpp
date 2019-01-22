@@ -85,7 +85,13 @@ void custom_type_container::print_container() {
 
 // Return ptrs to sds_alloc'ed memory that can be used with accelerators
 int *custom_type_container::get_x(){
-	return this->x_accel;
+	int *copy_x = (int*) sds_alloc(sizeof(int) * this->array_size);
+
+	for (int i = 0; i < this->array_size; i++) {
+		copy_x[i] = this->x_accel[i];
+	}
+
+	return copy_x;
 }
 
 // ""

@@ -32,22 +32,29 @@ author: parker holloway - parkerh@xilinx.com
 
 // A hardware accelerable function which can pull from the
 // alloc'ed memory in the container class
-int bubble_sort(uint64_t *obj_ptrs, int *values, int size){
-	int changed = 0;
-	for (int i = 0; i < size-1; i++){
-		if (values[i] > values[i+1]) {
-			int tmp = values[i+1];
-			uint64_t tmpptr = obj_ptrs[i+1];
+void bubble_sort(uint64_t *obj_ptrs, int *values, int size){
 
-			values[i+1] = values[i];
-			obj_ptrs[i+1] = obj_ptrs[i];
-
-			values[i] = tmp;
-			obj_ptrs[i] = tmpptr;
-
-			changed++;
+	for (int i = 0; i < size - 1; i++){
+		for (int k = 0; k < size; k++) {
+			printf("x: %i |", values[k]);
 		}
+		printf("\n");
+
+		for (int j = 0; j < size - i - 1; j++){
+			if (values[j] > values[j+1]) {
+				int tmp = values[j+1];
+				uint64_t tmpptr = obj_ptrs[j+1];
+
+				values[j+1] = values[j];
+				obj_ptrs[j+1] = obj_ptrs[j];
+
+				values[j] = tmp;
+				obj_ptrs[j] = tmpptr;
+			}
+		}
+
+
 	}
 
-	return changed;
+	return;
 }
